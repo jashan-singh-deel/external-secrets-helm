@@ -22,7 +22,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: app-pod-secret
-              key: foo
+              key: {{ .Values.deploymentName.foo}}
 
 
 
