@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.externalSecrets.secretName }}
+  name: {{ .Values.secrets.deploymentname.foo }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.externalSecrets.secretName }}
+      app: {{ .Values.secrets.deploymentname.foo }}
   template:
     metadata:
       labels:
-        app: {{ .Values.externalSecrets.secretName }}
+        app: {{ .Values.secrets.deploymentname.foo }}
     spec:
       containers:
       - name: alpine
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
+
 
 
 ---

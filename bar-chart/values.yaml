@@ -1,5 +1,7 @@
-externalSecrets:
-  enabled: true                    # Enable external secret functionality
-  secretName: prod-secret           # Kubernetes Secret name that will be created from external secret
-  secretKey: foo                    # Key in AWS Secrets Manager (prod/secret) to fetch the value 'bar'
-  refreshInterval: "1m"             # Optional: how often to refresh the secret
+# externalSecrets:
+#   enabled: true                    # Enable external secret functionality
+#   secretName: prod-secret           # Kubernetes Secret name that will be created from external secret
+#   secretKey: foo                    # Key in AWS Secrets Manager (prod/secret) to fetch the value 'bar'
+#   refreshInterval: "1m"             # Optional: how often to refresh the secret
+secrets:
+  deploymentname: prod-secret
