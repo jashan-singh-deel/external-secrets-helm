@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/jashan-singh-deel/argocd-vault-plugin'
+    repoURL: 'https://github.com/jashan-singh-deel/external-secrets-helm'
     targetRevision: HEAD
     path: 'bar-chart'
     helm:
