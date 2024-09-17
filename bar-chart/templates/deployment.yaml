@@ -32,8 +32,9 @@ spec:
     name: global-secret-store  # Name of the external secret store (e.g., AWS Secrets Manager, HashiCorp Vault)
     kind: ClusterSecretStore   # Refers to a cluster-wide secret store type
   target:
-    name: {{ .Values.externalSecrets.secretKey.foo }}      # Name of the Kubernetes secret that will be created/updated
+    name: prod-secret      # Name of the Kubernetes secret that will be created/updated
     creationPolicy: Owner      # Ownership policy. "Owner" means if the ExternalSecret is deleted, the target secret will also be deleted
   dataFrom:
     - extract:
         key: prod/secret     # The key (or secret name) in the external secret store from which all key-value pairs will be extracted
+
