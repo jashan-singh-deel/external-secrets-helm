@@ -17,19 +17,10 @@ spec:
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
-        # envFrom:
-        #   secretRef: 
-        #     name: {{ .Values.secrets.foo}}
-        # - name: deploymentName
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: app-pod-secret
-        #       key: foo
 
 
 ---
 
-#For any deployment, add this External Secret
 
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
