@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bar-application
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/jashan-singh-deel/argocd-vault-plugin'
+    targetRevision: HEAD
+    path: 'bar-chart'
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
