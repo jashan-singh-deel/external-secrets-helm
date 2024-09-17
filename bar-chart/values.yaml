@@ -1,4 +1,0 @@
-deploymentName: 
-  foo: app-pod-secret
-# secrets:
-#   foo: app-pod-secret

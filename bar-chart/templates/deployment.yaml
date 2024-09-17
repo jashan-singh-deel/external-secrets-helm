@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentName.foo }}
+  name: {{ .Values.externalSecrets.secretName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.deploymentName.foo }}
+      app: {{ .Values.externalSecrets.secretName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deploymentName.foo }}
+        app: {{ .Values.externalSecrets.secretName }}
     spec:
       containers:
       - name: alpine
@@ -32,7 +32,7 @@ spec:
     name: global-secret-store  # Name of the external secret store (e.g., AWS Secrets Manager, HashiCorp Vault)
     kind: ClusterSecretStore   # Refers to a cluster-wide secret store type
   target:
-    name: app-pod-secret       # Name of the Kubernetes secret that will be created/updated
+    name: .Values.externalSecrets.secretName       # Name of the Kubernetes secret that will be created/updated
     creationPolicy: Owner      # Ownership policy. "Owner" means if the ExternalSecret is deleted, the target secret will also be deleted
   dataFrom:
     - extract:
