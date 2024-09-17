@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentName }}
+  name: {{ .Values.deploymentName.foo }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.deploymentName }}
+      app: {{ .Values.deploymentName.foo }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deploymentName }}
+        app: {{ .Values.deploymentName.foo }}
     spec:
       containers:
       - name: alpine
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
-        env:
-        - name: deployment_name
-          valueFrom:
-            secretKeyRef:
-              name: app-pod-secret
-              key: {{ .Values.deploymentName.foo}}
-
-
+        # envFrom:
+        #   secretRef: 
+        #     name: {{ .Values.secrets.foo}}
+        # - name: deploymentName
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-pod-secret
+        #       key: foo
 
 
 ---
