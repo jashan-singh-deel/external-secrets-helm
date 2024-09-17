@@ -1,0 +1,5 @@
+externalSecrets:
+  enabled: true                    # Enable the external secret functionality
+  secretName: prod-secret           # The name of the Kubernetes secret to be created by ESO
+  secretKey: foo                    # Key in AWS Secrets Manager (foo)
+  refreshInterval: "1m"             # Optional: how often to refresh the secret
