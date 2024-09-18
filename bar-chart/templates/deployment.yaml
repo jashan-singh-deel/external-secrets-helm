@@ -24,7 +24,6 @@ spec:
               name: app-pod-secret
               key: foo
 
-
 ---
 
 #For any deployment, add this External Secret
