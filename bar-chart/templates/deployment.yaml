@@ -17,10 +17,5 @@ spec:
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
-        env:
-        - name: deployment_name
-          valueFrom:
-            secretKeyRef:
-              name: app-pod-secret
-              key: foo
+   
 
