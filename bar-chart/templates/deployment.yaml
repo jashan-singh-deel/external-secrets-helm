@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentName }}
+  name: {{ .Values.envSecrets.secretName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.deploymentName }}
+      app: {{ .Values.envSecrets.secretName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deploymentName }}
+        app: {{ .Values.envSecrets.secretName }}
     spec:
       containers:
       - name: alpine

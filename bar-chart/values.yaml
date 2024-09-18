@@ -1,1 +1,2 @@
-deploymentName: "bar-chart"
+envSecrets:
+  secretName: app-pod-secret
