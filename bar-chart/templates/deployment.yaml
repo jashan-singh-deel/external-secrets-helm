@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bar2
+  annotations:
+    reloader.stakater.com/reload: "prod-secret"
 spec:
   replicas: 1
   selector:
