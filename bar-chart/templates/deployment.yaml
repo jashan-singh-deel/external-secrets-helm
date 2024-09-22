@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.envSecrets.secretName }}
+  name: secret-store-secret
   annotations:
     reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.envSecrets.secretName }}
+      app: secret-store-secret
   template:
     metadata:
       labels:
-        app: {{ .Values.envSecrets.secretName }}
+        app: secret-store-secret
     spec:
       containers:
       - name: alpine
