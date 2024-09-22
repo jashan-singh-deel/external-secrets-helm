@@ -21,6 +21,6 @@ spec:
         args: ["while true; do echo hello; sleep 10; done"]
         envFrom:
           - secretRef:
-              name: {{.Values.envSecrets.secretName}}
+              name: secret-store-secret
    
 
